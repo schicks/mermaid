@@ -10,6 +10,7 @@ curv
 doublecircle
 elem
 elems
+eventmodeling
 gantt
 gitgraph
 gzipped
@@ -30,6 +31,7 @@ Pinterest
 procs
 rankdir
 ranksep
+readmodel
 rect
 rects
 sandboxed
