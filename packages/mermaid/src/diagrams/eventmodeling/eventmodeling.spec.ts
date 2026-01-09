@@ -1,6 +1,7 @@
 import { it, describe, expect, beforeEach } from 'vitest';
 import { EventModelingDB } from './db.js';
 import { parser } from './parser.js';
+import { layoutEventModeling } from './svgDraw.js';
 
 describe('eventmodeling diagrams', () => {
   let db: EventModelingDB;
@@ -335,6 +336,63 @@ describe('eventmodeling diagrams', () => {
 
       const events = db.getEvents();
       expect(events).toHaveLength(3);
+    });
+  });
+
+  describe('layout', () => {
+    it('should calculate layout for entities', async () => {
+      const str = `eventmodeling
+      system Cart {
+        event ItemAdded
+      }
+      screen CartScreen
+      command AddItem
+      readmodel CartItems
+      CartScreen --> AddItem
+      AddItem --> ItemAdded
+      ItemAdded --> CartItems
+      `;
+      await expect(parser.parse(str)).resolves.not.toThrow();
+
+      const systems = db.getSystems();
+      const entities = db.getEntities();
+      const edges = db.getEdges();
+
+      const layout = layoutEventModeling(systems, entities, edges);
+
+      expect(layout.entities).toHaveLength(4);
+      expect(layout.edges).toHaveLength(3);
+      expect(layout.swimlanes.length).toBeGreaterThan(0);
+      expect(layout.width).toBeGreaterThan(0);
+      expect(layout.height).toBeGreaterThan(0);
+    });
+
+    it('should position entities in correct swimlanes', async () => {
+      const str = `eventmodeling
+      system Cart {
+        event ItemAdded
+      }
+      screen CartScreen
+      command AddItem
+      readmodel CartItems
+      `;
+      await expect(parser.parse(str)).resolves.not.toThrow();
+
+      const systems = db.getSystems();
+      const entities = db.getEntities();
+      const edges = db.getEdges();
+
+      const layout = layoutEventModeling(systems, entities, edges);
+
+      const screenEntity = layout.entities.find((e) => e.entity.id === 'CartScreen');
+      const commandEntity = layout.entities.find((e) => e.entity.id === 'AddItem');
+      const eventEntity = layout.entities.find((e) => e.entity.id === 'ItemAdded');
+      const readmodelEntity = layout.entities.find((e) => e.entity.id === 'CartItems');
+
+      expect(screenEntity?.swimlane).toBe(0); // triggers swimlane
+      expect(commandEntity?.swimlane).toBe(1); // commands swimlane
+      expect(eventEntity?.swimlane).toBe(2); // first system events swimlane
+      expect(readmodelEntity?.swimlane).toBe(4); // read models swimlane (triggers + commands + 1 system + read models)
     });
   });
 });
