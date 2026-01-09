@@ -67,3 +67,49 @@ export interface EventModelingData {
   entities: EventModelingEntity[];
   edges: EventModelingEdge[];
 }
+
+export interface EventModelingStyleOptions {
+  // Swimlane styles
+  emSwimlaneBgColor: string;
+  emSwimlaneAltBgColor: string;
+  emSwimlaneBorderColor: string;
+  emSwimlaneBorderWidth: string;
+  emSwimlaneLabelColor: string;
+  emSwimlaneLabelFontSize: string;
+
+  // Entity styles
+  emEntityBorderWidth: string;
+  emEntityLabelFontSize: string;
+
+  // Screen styles
+  emScreenBgColor: string;
+  emScreenBorderColor: string;
+  emScreenTextColor: string;
+
+  // Processor styles
+  emProcessorBgColor: string;
+  emProcessorBorderColor: string;
+  emProcessorTextColor: string;
+
+  // Command styles
+  emCommandBgColor: string;
+  emCommandBorderColor: string;
+  emCommandTextColor: string;
+
+  // Event styles
+  emEventBgColor: string;
+  emEventBorderColor: string;
+  emEventTextColor: string;
+
+  // Read Model styles
+  emReadModelBgColor: string;
+  emReadModelBorderColor: string;
+  emReadModelTextColor: string;
+
+  // Edge styles
+  emEdgeColor: string;
+  emEdgeWidth: string;
+  emEdgeArrowColor: string;
+  emEdgeHoverColor: string;
+  emEdgeHoverWidth: string;
+}

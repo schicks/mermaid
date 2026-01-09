@@ -13,10 +13,25 @@
   </head>
 
   <body>
-    <h1>Event Modeling diagram demo</h1>
+    <h1>Event Modeling Diagram Demo</h1>
     <p>
       Event Modeling diagrams visualize system behavior over time using swimlanes for different
-      entity types.
+      entity types. They show the flow of commands, events, and read models in a system, organized
+      by time and system boundaries.
+    </p>
+    <p>
+      <strong>Entity Types:</strong>
+      <span style="background-color: #fff; border: 1px solid #ccc; padding: 2px 8px; margin: 0 4px"
+        >Screen</span
+      >
+      <span style="background-color: #9370db; color: white; padding: 2px 8px; margin: 0 4px"
+        >Processor</span
+      >
+      <span style="background-color: #4682b4; color: white; padding: 2px 8px; margin: 0 4px"
+        >Command</span
+      >
+      <span style="background-color: #90ee90; padding: 2px 8px; margin: 0 4px">Read Model</span>
+      <span style="background-color: #ffa500; padding: 2px 8px; margin: 0 4px">Event</span>
     </p>
 
     <div class="diagrams">
@@ -151,6 +166,35 @@
         EventA1 --> EventB1
         EventB1 --> EventC1
         EventC1 --> ReadModel1
+    </pre
+      >
+
+      <pre class="mermaid">
+      eventmodeling
+        title Complete Feature Example
+        accTitle: Complete Event Modeling Example
+        accDescr: Shows all entity types including screens, commands, events, read models, and processors
+        
+        system Authentication {
+          event UserLoggedIn (userId sessionId)
+          event LoginFailed (reason)
+        }
+        
+        system Notification {
+          event NotificationSent (userId message)
+        }
+        
+        screen LoginScreen [User Login Page]
+        command AuthenticateUser (username password) [Authenticate User Command]
+        readmodel UserSession (sessionId expiry) [Active User Session]
+        processor NotificationProcessor [Notification Service]
+        
+        LoginScreen --> AuthenticateUser
+        AuthenticateUser --> UserLoggedIn
+        UserLoggedIn --> UserSession
+        UserSession --> LoginScreen
+        UserLoggedIn --> NotificationProcessor
+        NotificationProcessor --> NotificationSent
     </pre
       >
     </div>

@@ -94,6 +94,36 @@ class Theme {
     this.archGroupBorderColor = this.primaryBorderColor;
     this.archGroupBorderWidth = '2px';
 
+    /* Event Modeling Diagram variables */
+    this.emSwimlaneBgColor = lighten(this.mainBkg, 10);
+    this.emSwimlaneAltBgColor = lighten(this.mainBkg, 15);
+    this.emSwimlaneBorderColor = darken(this.mainBkg, 20);
+    this.emSwimlaneBorderWidth = '1';
+    this.emSwimlaneLabelColor = darken(this.mainBkg, 40);
+    this.emSwimlaneLabelFontSize = '14px';
+    this.emEntityBorderWidth = '2';
+    this.emEntityLabelFontSize = '12px';
+    this.emScreenBgColor = '#ffffff';
+    this.emScreenBorderColor = darken(this.mainBkg, 30);
+    this.emScreenTextColor = '#333';
+    this.emProcessorBgColor = '#8e44ad';
+    this.emProcessorBorderColor = darken('#8e44ad', 10);
+    this.emProcessorTextColor = '#ffffff';
+    this.emCommandBgColor = '#2980b9';
+    this.emCommandBorderColor = darken('#2980b9', 10);
+    this.emCommandTextColor = '#ffffff';
+    this.emEventBgColor = '#d35400';
+    this.emEventBorderColor = darken('#d35400', 10);
+    this.emEventTextColor = '#ffffff';
+    this.emReadModelBgColor = '#229954';
+    this.emReadModelBorderColor = darken('#229954', 10);
+    this.emReadModelTextColor = '#ffffff';
+    this.emEdgeColor = 'calculated';
+    this.emEdgeWidth = '2';
+    this.emEdgeArrowColor = 'calculated';
+    this.emEdgeHoverColor = 'calculated';
+    this.emEdgeHoverWidth = '3';
+
     /* state colors */
     this.labelColor = 'black';
 
@@ -173,6 +203,11 @@ class Theme {
     /* Architecture Diagram variables */
     this.archEdgeColor = this.lineColor;
     this.archEdgeArrowColor = this.lineColor;
+
+    /* Event Modeling Diagram variables */
+    this.emEdgeColor = this.lineColor;
+    this.emEdgeArrowColor = this.lineColor;
+    this.emEdgeHoverColor = darken(this.lineColor, 20);
 
     /* ER diagram */
     this.rowOdd = this.rowOdd || lighten(this.mainBkg, 75) || '#ffffff';

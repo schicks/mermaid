@@ -252,6 +252,36 @@ class Theme {
     this.archGroupBorderColor = this.archGroupBorderColor || '#000';
     this.archGroupBorderWidth = this.archGroupBorderWidth || '2px';
 
+    /* event modeling */
+    this.emSwimlaneBgColor = this.emSwimlaneBgColor || '#f9f9f9';
+    this.emSwimlaneAltBgColor = this.emSwimlaneAltBgColor || '#f0f0f0';
+    this.emSwimlaneBorderColor = this.emSwimlaneBorderColor || '#ddd';
+    this.emSwimlaneBorderWidth = this.emSwimlaneBorderWidth || '1';
+    this.emSwimlaneLabelColor = this.emSwimlaneLabelColor || '#666';
+    this.emSwimlaneLabelFontSize = this.emSwimlaneLabelFontSize || '14px';
+    this.emEntityBorderWidth = this.emEntityBorderWidth || '2';
+    this.emEntityLabelFontSize = this.emEntityLabelFontSize || '12px';
+    this.emScreenBgColor = this.emScreenBgColor || '#ffffff';
+    this.emScreenBorderColor = this.emScreenBorderColor || '#333';
+    this.emScreenTextColor = this.emScreenTextColor || '#333';
+    this.emProcessorBgColor = this.emProcessorBgColor || '#9b59b6';
+    this.emProcessorBorderColor = this.emProcessorBorderColor || '#8e44ad';
+    this.emProcessorTextColor = this.emProcessorTextColor || '#ffffff';
+    this.emCommandBgColor = this.emCommandBgColor || '#3498db';
+    this.emCommandBorderColor = this.emCommandBorderColor || '#2980b9';
+    this.emCommandTextColor = this.emCommandTextColor || '#ffffff';
+    this.emEventBgColor = this.emEventBgColor || '#e67e22';
+    this.emEventBorderColor = this.emEventBorderColor || '#d35400';
+    this.emEventTextColor = this.emEventTextColor || '#ffffff';
+    this.emReadModelBgColor = this.emReadModelBgColor || '#27ae60';
+    this.emReadModelBorderColor = this.emReadModelBorderColor || '#229954';
+    this.emReadModelTextColor = this.emReadModelTextColor || '#ffffff';
+    this.emEdgeColor = this.emEdgeColor || '#333';
+    this.emEdgeWidth = this.emEdgeWidth || '2';
+    this.emEdgeArrowColor = this.emEdgeArrowColor || '#333';
+    this.emEdgeHoverColor = this.emEdgeHoverColor || '#555';
+    this.emEdgeHoverWidth = this.emEdgeHoverWidth || '3';
+
     /* quadrant-graph */
     this.quadrant1Fill = this.quadrant1Fill || this.primaryColor;
     this.quadrant2Fill = this.quadrant2Fill || adjust(this.primaryColor, { r: 5, g: 5, b: 5 });

@@ -178,6 +178,7 @@ function sidebarSyntax() {
         { text: 'Packet 🔥', link: '/syntax/packet' },
         { text: 'Kanban 🔥', link: '/syntax/kanban' },
         { text: 'Architecture 🔥', link: '/syntax/architecture' },
+        { text: 'Event Modeling 🔥', link: '/syntax/eventmodeling' },
         { text: 'Radar 🔥', link: '/syntax/radar' },
         { text: 'Treemap 🔥', link: '/syntax/treemap' },
         { text: 'Other Examples', link: '/syntax/examples' },

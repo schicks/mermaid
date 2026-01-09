@@ -92,6 +92,36 @@ class Theme {
     this.archGroupBorderColor = this.primaryBorderColor;
     this.archGroupBorderWidth = '2px';
 
+    /* Event Modeling Diagram variables */
+    this.emSwimlaneBgColor = 'calculated';
+    this.emSwimlaneAltBgColor = 'calculated';
+    this.emSwimlaneBorderColor = 'calculated';
+    this.emSwimlaneBorderWidth = '1';
+    this.emSwimlaneLabelColor = 'calculated';
+    this.emSwimlaneLabelFontSize = '14px';
+    this.emEntityBorderWidth = '2';
+    this.emEntityLabelFontSize = '12px';
+    this.emScreenBgColor = 'calculated';
+    this.emScreenBorderColor = 'calculated';
+    this.emScreenTextColor = 'calculated';
+    this.emProcessorBgColor = 'calculated';
+    this.emProcessorBorderColor = 'calculated';
+    this.emProcessorTextColor = 'calculated';
+    this.emCommandBgColor = 'calculated';
+    this.emCommandBorderColor = 'calculated';
+    this.emCommandTextColor = 'calculated';
+    this.emEventBgColor = 'calculated';
+    this.emEventBorderColor = 'calculated';
+    this.emEventTextColor = 'calculated';
+    this.emReadModelBgColor = 'calculated';
+    this.emReadModelBorderColor = 'calculated';
+    this.emReadModelTextColor = 'calculated';
+    this.emEdgeColor = 'calculated';
+    this.emEdgeWidth = '2';
+    this.emEdgeArrowColor = 'calculated';
+    this.emEdgeHoverColor = 'calculated';
+    this.emEdgeHoverWidth = '3';
+
     /* Entity Relationship variables */
     this.rowOdd = this.rowOdd || lighten(this.mainBkg, 5) || '#ffffff';
     this.rowEven = this.rowEven || darken(this.mainBkg, 10);
@@ -147,6 +177,30 @@ class Theme {
     /* Architecture Diagram variables */
     this.archEdgeColor = this.lineColor;
     this.archEdgeArrowColor = this.lineColor;
+
+    /* Event Modeling Diagram variables */
+    this.emSwimlaneBgColor = lighten(this.mainBkg, 5);
+    this.emSwimlaneAltBgColor = lighten(this.mainBkg, 8);
+    this.emSwimlaneBorderColor = this.border1;
+    this.emSwimlaneLabelColor = this.mainContrastColor;
+    this.emScreenBgColor = lighten(this.mainBkg, 15);
+    this.emScreenBorderColor = this.border1;
+    this.emScreenTextColor = this.mainContrastColor;
+    this.emProcessorBgColor = '#7d3c98';
+    this.emProcessorBorderColor = '#6c2d7f';
+    this.emProcessorTextColor = this.mainContrastColor;
+    this.emCommandBgColor = '#2874a6';
+    this.emCommandBorderColor = '#21618c';
+    this.emCommandTextColor = this.mainContrastColor;
+    this.emEventBgColor = '#ba6832';
+    this.emEventBorderColor = '#a04f1e';
+    this.emEventTextColor = this.mainContrastColor;
+    this.emReadModelBgColor = '#1e8449';
+    this.emReadModelBorderColor = '#196f3d';
+    this.emReadModelTextColor = this.mainContrastColor;
+    this.emEdgeColor = this.lineColor;
+    this.emEdgeArrowColor = this.lineColor;
+    this.emEdgeHoverColor = lighten(this.lineColor, 20);
 
     /* state colors */
     this.transitionColor = this.transitionColor || this.lineColor;

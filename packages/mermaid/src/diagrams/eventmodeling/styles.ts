@@ -1,20 +1,22 @@
 import type { DiagramStylesProvider } from '../../diagram-api/types.js';
+import type { EventModelingStyleOptions } from './types.js';
 
-const getStyles: DiagramStylesProvider = () => `
+const getStyles: DiagramStylesProvider = (options: EventModelingStyleOptions) =>
+  `
   .eventmodeling-swimlanes .swimlane-bg {
-    fill: #f9f9f9;
-    stroke: #ddd;
-    stroke-width: 1;
+    fill: ${options.emSwimlaneBgColor};
+    stroke: ${options.emSwimlaneBorderColor};
+    stroke-width: ${options.emSwimlaneBorderWidth};
   }
 
   .eventmodeling-swimlanes .swimlane-bg.swimlane-odd {
-    fill: #f0f0f0;
+    fill: ${options.emSwimlaneAltBgColor};
   }
 
   .eventmodeling-swimlanes .swimlane-label {
-    font-size: 14px;
+    font-size: ${options.emSwimlaneLabelFontSize};
     font-weight: bold;
-    fill: #666;
+    fill: ${options.emSwimlaneLabelColor};
   }
 
   .eventmodeling-entities .entity {
@@ -30,39 +32,72 @@ const getStyles: DiagramStylesProvider = () => `
   }
 
   .eventmodeling-entities .entity-label {
-    font-size: 12px;
-    fill: #333;
+    font-size: ${options.emEntityLabelFontSize};
+  }
+
+  .eventmodeling-entities .entity-screen rect {
+    fill: ${options.emScreenBgColor};
+    stroke: ${options.emScreenBorderColor};
+    stroke-width: ${options.emEntityBorderWidth};
   }
 
   .eventmodeling-entities .entity-screen .entity-label {
-    fill: #333;
+    fill: ${options.emScreenTextColor};
+  }
+
+  .eventmodeling-entities .entity-processor rect {
+    fill: ${options.emProcessorBgColor};
+    stroke: ${options.emProcessorBorderColor};
+    stroke-width: ${options.emEntityBorderWidth};
   }
 
   .eventmodeling-entities .entity-processor .entity-label {
-    fill: #fff;
+    fill: ${options.emProcessorTextColor};
+  }
+
+  .eventmodeling-entities .entity-command rect {
+    fill: ${options.emCommandBgColor};
+    stroke: ${options.emCommandBorderColor};
+    stroke-width: ${options.emEntityBorderWidth};
   }
 
   .eventmodeling-entities .entity-command .entity-label {
-    fill: #fff;
+    fill: ${options.emCommandTextColor};
+  }
+
+  .eventmodeling-entities .entity-event rect {
+    fill: ${options.emEventBgColor};
+    stroke: ${options.emEventBorderColor};
+    stroke-width: ${options.emEntityBorderWidth};
   }
 
   .eventmodeling-entities .entity-event .entity-label {
-    fill: #fff;
+    fill: ${options.emEventTextColor};
+  }
+
+  .eventmodeling-entities .entity-readmodel rect {
+    fill: ${options.emReadModelBgColor};
+    stroke: ${options.emReadModelBorderColor};
+    stroke-width: ${options.emEntityBorderWidth};
   }
 
   .eventmodeling-entities .entity-readmodel .entity-label {
-    fill: #fff;
+    fill: ${options.emReadModelTextColor};
   }
 
   .eventmodeling-edges .edge-path {
     fill: none;
-    stroke: #333;
-    stroke-width: 2;
+    stroke: ${options.emEdgeColor};
+    stroke-width: ${options.emEdgeWidth};
   }
 
   .eventmodeling-edges .edge-path:hover {
-    stroke: #555;
-    stroke-width: 3;
+    stroke: ${options.emEdgeHoverColor};
+    stroke-width: ${options.emEdgeHoverWidth};
+  }
+
+  .eventmodeling-edges .arrowhead {
+    fill: ${options.emEdgeArrowColor};
   }
 `;
 

@@ -121,6 +121,36 @@ class Theme {
     this.archGroupBorderColor = this.primaryBorderColor;
     this.archGroupBorderWidth = '2px';
 
+    /* Event Modeling Diagram variables */
+    this.emSwimlaneBgColor = '#f9f9f9';
+    this.emSwimlaneAltBgColor = '#f0f0f0';
+    this.emSwimlaneBorderColor = '#ddd';
+    this.emSwimlaneBorderWidth = '1';
+    this.emSwimlaneLabelColor = '#666';
+    this.emSwimlaneLabelFontSize = '14px';
+    this.emEntityBorderWidth = '2';
+    this.emEntityLabelFontSize = '12px';
+    this.emScreenBgColor = '#ffffff';
+    this.emScreenBorderColor = '#333';
+    this.emScreenTextColor = '#333';
+    this.emProcessorBgColor = '#9b59b6';
+    this.emProcessorBorderColor = '#8e44ad';
+    this.emProcessorTextColor = '#ffffff';
+    this.emCommandBgColor = '#3498db';
+    this.emCommandBorderColor = '#2980b9';
+    this.emCommandTextColor = '#ffffff';
+    this.emEventBgColor = '#e67e22';
+    this.emEventBorderColor = '#d35400';
+    this.emEventTextColor = '#ffffff';
+    this.emReadModelBgColor = '#27ae60';
+    this.emReadModelBorderColor = '#229954';
+    this.emReadModelTextColor = '#ffffff';
+    this.emEdgeColor = 'calculated';
+    this.emEdgeWidth = '2';
+    this.emEdgeArrowColor = 'calculated';
+    this.emEdgeHoverColor = 'calculated';
+    this.emEdgeHoverWidth = '3';
+
     /* Entity Relationship variables */
     this.rowOdd = 'calculated';
     this.rowEven = 'calculated';
@@ -210,6 +240,11 @@ class Theme {
     /* Architecture Diagram variables */
     this.archEdgeColor = this.lineColor;
     this.archEdgeArrowColor = this.lineColor;
+
+    /* Event Modeling Diagram variables */
+    this.emEdgeColor = this.lineColor;
+    this.emEdgeArrowColor = this.lineColor;
+    this.emEdgeHoverColor = darken(this.lineColor, 20);
 
     /* Entity Relationship variables */
     this.rowOdd = this.rowOdd || lighten(this.primaryColor, 75) || '#ffffff';
