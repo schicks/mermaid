@@ -71,9 +71,12 @@ describe('eventmodeling', () => {
       const result = parse(context);
       expectNoErrorsOrAlternatives(result);
       expect(result.value.entities).toHaveLength(1);
-      expect(result.value.entities[0].$type).toBe('Command');
-      expect(result.value.entities[0].id).toBe('AddItem');
-      expect(result.value.entities[0].data).toBe('productId: number');
+      const entity = result.value.entities[0];
+      expect(entity.$type).toBe('Command');
+      expect(entity.id).toBe('AddItem');
+      if (entity.$type === 'Command') {
+        expect(entity.data).toBe('productId: number');
+      }
     });
 
     it('should handle readmodel definition', () => {

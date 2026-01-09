@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Event Modeling Diagram Demo</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=" />
+    <style>
+      div.mermaid {
+        font-family: 'Courier New', Courier, monospace !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Event Modeling diagram demo</h1>
+    <p>
+      <strong>Note:</strong> Renderer not yet implemented. This demo tests parser functionality
+      only.
+    </p>
+
+    <div class="diagrams">
+      <pre class="mermaid">
+      eventmodeling
+        title Shopping Cart Flow
+        
+        system Cart {
+          event ItemAdded (productId)
+          event ItemRemoved (itemId)
+          event CartCleared
+        }
+        
+        system Inventory {
+          event InventoryChanged (productId quantity)
+        }
+        
+        screen CartScreen [Cart View]
+        command AddItem (productId)
+        command RemoveItem (itemId)
+        readmodel CartItems
+        processor OrderProcessor
+        
+        CartScreen --> AddItem
+        AddItem --> ItemAdded
+        ItemAdded --> CartItems
+        CartItems --> CartScreen
+        CartScreen --> RemoveItem
+        RemoveItem --> ItemRemoved
+    </pre
+      >
+
+      <pre class="mermaid">
+      eventmodeling
+        title User Registration Flow
+        
+        system User {
+          event UserRegistered (email)
+          event EmailVerified (userId)
+        }
+        
+        screen RegistrationScreen
+        command RegisterUser (email password)
+        command VerifyEmail (token)
+        readmodel UserProfile
+        
+        RegistrationScreen --> RegisterUser
+        RegisterUser --> UserRegistered
+        UserRegistered --> UserProfile
+    </pre
+      >
+
+      <pre class="mermaid">
+      eventmodeling
+        title Order Processing
+        
+        system Order {
+          event OrderPlaced
+          event OrderShipped
+          event OrderDelivered
+        }
+        
+        system Payment {
+          event PaymentProcessed
+          event PaymentFailed
+        }
+        
+        screen CheckoutScreen
+        command PlaceOrder
+        command ProcessPayment
+        readmodel OrderHistory
+        readmodel PaymentStatus
+        processor ShippingProcessor
+        
+        CheckoutScreen --> PlaceOrder
+        PlaceOrder --> OrderPlaced
+        OrderPlaced --> ProcessPayment
+        ProcessPayment --> PaymentProcessed
+        PaymentProcessed --> OrderShipped
+        OrderShipped --> ShippingProcessor
+        ShippingProcessor --> OrderDelivered
+        OrderDelivered --> OrderHistory
+    </pre
+      >
+
+      <pre class="mermaid">
+      eventmodeling
+        title Simple Flow
+        accTitle: Simple Event Modeling Flow
+        accDescr: A simple event modeling diagram with minimal entities
+        
+        system Simple {
+          event SomethingHappened
+        }
+        
+        screen StartScreen
+        command DoSomething
+        readmodel Result
+        
+        StartScreen --> DoSomething
+        DoSomething --> SomethingHappened
+        SomethingHappened --> Result
+        Result --> StartScreen
+    </pre
+      >
+
+      <pre class="mermaid">
+      eventmodeling
+        title Multiple Systems
+        
+        system SystemA {
+          event EventA1
+          event EventA2
+        }
+        
+        system SystemB {
+          event EventB1
+        }
+        
+        system SystemC {
+          event EventC1
+          event EventC2
+          event EventC3
+        }
+        
+        screen Screen1
+        command Command1
+        readmodel ReadModel1
+        
+        Screen1 --> Command1
+        Command1 --> EventA1
+        EventA1 --> EventB1
+        EventB1 --> EventC1
+        EventC1 --> ReadModel1
+    </pre
+      >
+    </div>
+    <script type="module">
+      import mermaid from '/mermaid.esm.mjs';
+      mermaid.initialize({
+        logLevel: 3,
+        securityLevel: 'loose',
+      });
+    </script>
+
+    <style>
+      .diagrams {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      pre {
+        width: 45vw;
+        padding: 2em;
+        border: 1px solid #ccc;
+        margin: 1em;
+      }
+    </style>
+  </body>
+</html>

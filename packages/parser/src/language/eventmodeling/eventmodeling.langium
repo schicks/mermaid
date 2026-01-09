@@ -1,6 +1,10 @@
 grammar EventModeling
 import "../common/common";
 
+terminal ARROW: '-->' | '<--' | '<->';
+terminal EM_TITLE: /\[[\w ]+\]/;
+terminal EM_DATA: /\([^)]*\)/;
+
 entry EventModeling:
     NEWLINE*
     "eventmodeling"
@@ -53,8 +57,3 @@ ReadModel:
 Edge:
     source=ID arrow=ARROW target=ID EOL
 ;
-
-terminal ARROW: '-->' | '<--' | '<->';
-terminal EM_TITLE: /\[[\w ]+\]/;
-terminal EM_DATA: /\([^)]*\)/;
-
